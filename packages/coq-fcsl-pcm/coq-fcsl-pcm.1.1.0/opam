@@ -1,6 +1,6 @@
 opam-version: "2.0"
 name: "coq-fcsl-pcm"
-version: "1.0.0"
+version: "1.1.0"
 maintainer: "FCSL <fcsl@software.imdea.org>"
 
 homepage: "http://software.imdea.org/fcsl/"
@@ -12,8 +12,8 @@ build: [ make "-j%{jobs}%" ]
 install: [ make "install" ]
 depends: [
   "ocaml"
-  "coq" {(>= "8.7" & < "8.10~") | (= "dev")}
-  "coq-mathcomp-ssreflect" {>= "1.6.2" & < "1.8~"}
+  "coq" {(>= "8.9" & < "8.10~") | (= "dev")}
+  "coq-mathcomp-ssreflect" {(>= "1.7.0" & < "1.9~") | (= "dev")}
 ]
 tags: [
   "keyword:separation logic"
@@ -36,6 +36,6 @@ histories and mutexes.
 This library relies on extensionality axioms: propositional and
 functional extentionality."""
 url {
-  src: "https://github.com/imdea-software/fcsl-pcm/archive/v1.0.0.tar.gz"
-  checksum: "sha256=2c47a61af567fd9d53a3b9d36bec3d422173d54516b847e0bae4103951c90b41"
+  src: "https://github.com/imdea-software/fcsl-pcm/archive/v1.1.0.tar.gz"
+  checksum: "sha256=9c1ba6ad0dd98f9f587619c5a8e54641457b9fa5ac988cb95328de5f1b47018f"
 }
