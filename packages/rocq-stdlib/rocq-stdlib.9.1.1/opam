@@ -22,20 +22,30 @@ license: "LGPL-2.1-only"
 homepage: "https://coq.inria.fr/"
 doc: "https://coq.github.io/doc/"
 bug-reports: "https://github.com/Durbatuluk1701/stdlib/issues"
-dev-repo: "git+https://github.com/Durbatuluk1701/stdlib.git"
 depends: [
+  "dune" {>= "3.8"}
   "rocq-runtime"
-  "rocq-core" {>= "9.1"}
+  "rocq-core" {= version}
+  "odoc" {with-doc}
 ]
 build: [
-  [make "-j" jobs]
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
 ]
-install: [
-  [make "install"]
-]
+dev-repo: "git+https://github.com/Durbatuluk1701/stdlib.git"
 
 url {
   src: "https://github.com/Durbatuluk1701/stdlib/archive/refs/tags/v9.1.1.tar.gz"
-  checksum: "sha512=5b5bc0f47d1cf1ca97013f81fa8437ef7608ff2ea967feebdcb29f7ce6060336d680a3b271e4614dd7ffce732c951d361d90e5b83457c17ea1ec723725c3c65c"
+  checksum: "sha512=7bfb8cc2d1098afafa87561dbef8d0aedaac20fdab461e566597e972129a95a1a2d609c83f811ffc0a7bab9e09b223ce868b37b04fdb9b0a490f3a4e47677d37"
 }
 
